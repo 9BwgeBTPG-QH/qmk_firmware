@@ -18,7 +18,7 @@
 #include "rgblight_list.h"
 enum layers {
     _QWERTY = 0,
-    _IOS,
+    _EUCALYN,
     _LOWER,
     _RAISE,
     _ADJUST,
@@ -36,11 +36,11 @@ OSM(MOD_LSFT),KC_Z,KC_X, KC_C,KC_V,KC_B,   LT(4,JP_YEN),      LT(5,JP_AT),      
 ),
 
 
-    [_IOS] = LAYOUT(
-KC_TAB, KC_Q,KC_W,KC_E,KC_R,KC_T,                                                                                           KC_Y,KC_U, KC_I,          KC_O,      KC_P,           KC_BSPC,\
-MT(MOD_LCTL,KC_BSPC),KC_A,KC_S, KC_D,KC_F,KC_G,                                                                                           KC_H,KC_J,  KC_K,         KC_L,      KC_SCLN,     KC_ENT,\
-OSM(MOD_LSFT),KC_Z,KC_X, KC_C,KC_V,KC_B,   LT(4,JP_YEN),      LT(5,JP_AT),        JP_QUOT,OSM(MOD_LSFT),            KC_N,KC_M,KC_COMM,KC_DOT,KC_SLSH,     LT(5,JP_AT),\
-            TG(5),KC_LGUI,LGUI_T(KC_LALT),       LT(2,KC_LANG2),KC_SPC,        KC_LANG1,LT(3,KC_DEL),       LALT_T(JP_PIPE),JP_UNDS,RCTL(KC_M)\
+    [_EUCALYN] = LAYOUT(
+KC_TAB,KC_EQL,KC_COMM,KC_DOT,KC_P,KC_Q,                                                                          KC_Y,KC_G,KC_D,KC_M,KC_F,KC_TRNS,\
+KC_LCTL,KC_A,KC_O,KC_E,KC_I,KC_U,KC_B,KC_N,                                                                          KC_T,KC_R,KC_S,KC_ENT,\
+KC_LSFT,KC_Z,KC_X,KC_C,KC_V,KC_W,LT(4,JP_MINS),JP_AT,                              JP_QUOT,JP_YEN,KC_H,KC_J,KC_K,KC_L,KC_SLSH,LT(5,JP_AT),\
+TG(5),KC_LGUI,LGUI_T(KC_LALT),LT(2,KC_MHEN),KC_SPC,                                      KC_HENK,LT(3,KC_DEL),JP_PIPE,JP_UNDS,RCTL(KC_M)\
     ),
 
 
@@ -193,8 +193,8 @@ static void render_status(void) {
         case _QWERTY:
             oled_write_P(PSTR("Default\n"), false);
             break;
-        case _IOS:
-            oled_write_P(PSTR("iOS\n"), false);
+        case _EUCALYN:
+            oled_write_P(PSTR("Eucalyn\n"), false);
             break;
         case _LOWER:
             oled_write_P(PSTR("Lower\n"), false);
@@ -241,7 +241,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
                     tap_code16(C(KC_Z));
                 }
                 break;
-            case _IOS:
+            case _EUCALYN:
                 // History scrubbing. For Adobe products, hold shift while moving
                 // backward to go forward instead._履歴
                 if (clockwise) {
@@ -269,7 +269,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_RIGHT);
                         }
                 break;
-            case _IOS:
+            case _EUCALYN:
         // Arrow LEFT and RIGHT_左右
         if (clockwise) {
             tap_code(KC_LEFT);

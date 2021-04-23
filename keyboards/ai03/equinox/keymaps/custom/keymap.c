@@ -15,6 +15,8 @@
  */
 #include QMK_KEYBOARD_H
 #include"keymap_jp.h"
+#include"config.h"
+
 /*
 ここも修正する必要がある
 数が違うからね 12から13かな
@@ -44,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LGUI, XXXXXXX, KC_LALT,   JP_TILD,       JP_UNDS,            JP_CIRC, KC_TRNS, XXXXXXX, RESET
   ),
   [3] = LAYOUT_all( /* Mouse */
-    KC_ESC,       KC_BTN1,   KC_MS_U,         KC_BTN2,   KC_PGUP,   KC_HOME,   LSFT(KC_HOME),   JP_TILD,    JP_LBRC,         JP_RBRC,             JP_LCBR,    JP_RCBR,
-    CTL_T(KC_ESC),       KC_MS_L,   KC_MS_D,  KC_MS_R,   KC_PGDN,   KC_END,      LSFT(KC_END),      KC_F11,    KC_F12,           KC_F13,               KC_F14,      KC_F14,
-    KC_LSFT,  XXXXXXX,   KC_F15,  KC_F16,        KC_F17,       KC_F18,       KC_F19,        SGUI(KC_S),        JP_CIRC,   LGUI(KC_LEFT), LGUI(KC_RGHT),   KC_AUDIO_MUTE,
+    BL_TOGG,       KC_BTN1,   KC_MS_U,         KC_BTN2,   KC_PGUP,   KC_HOME,   LSFT(KC_HOME),   JP_TILD,    JP_LBRC,         JP_RBRC,             JP_LCBR,    JP_RCBR,
+    BL_INC,       KC_MS_L,   KC_MS_D,  KC_MS_R,   KC_PGDN,   KC_END,      LSFT(KC_END),      KC_F11,    KC_F12,           KC_F13,               KC_F14,      KC_F14,
+    BL_DEC,  XXXXXXX,   KC_F15,  KC_F16,        KC_F17,       KC_F18,       KC_F19,        SGUI(KC_S),        JP_CIRC,   LGUI(KC_LEFT), LGUI(KC_RGHT),   KC_AUDIO_MUTE,
     KC_LGUI, XXXXXXX, KC_LALT,   LT(1,KC_MHEN),       KC_SPC,            KC_HENK, LT(2,KC_DEL), XXXXXXX,               LT(3,JP_PIPE)
   )
 };
